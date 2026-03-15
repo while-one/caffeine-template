@@ -37,8 +37,6 @@ By instantiating a repository from this template, you inherit the framework's st
 
 ## The Caffeine Framework Layers
 
-Caffeine-HAL is the foundational interface within the broader **Caffeine Framework**—a strictly decoupled, layered architecture designed for modern embedded systems. This separation of concerns ensures that business logic remains completely portable across different microcontrollers and even host operating systems.
-
 The framework is composed of the following distinct layers:
 
 1.  **Generic Interface ([`caffeine-hal`](https://github.com/while-one/caffeine-hal)):** Header-only definitions of the Hardware Abstraction Layer and Virtual Method Tables (VMTs).
