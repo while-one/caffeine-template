@@ -33,10 +33,35 @@ By instantiating a repository from this template, you inherit the framework's st
 
 *   **Formatting (`config/.clang-format`):** Enforces a 120-column limit, 4-space indentation, and Allman-style braces.
 *   **Static Analysis (`config/.clang-tidy`):** Enforces strict C11 compliance, memory safety rules (no dynamic allocation), and best practices for embedded systems.
-*   **GitHub Infrastructure (`.github/`):** Pre-configured Pull Request templates, repository ownership rules, and baseline Continuous Integration workflows.
+*   **GitHub Infrastructure (`.github/`):** Pre-configured Pull Request templates, repository ownership rules, and baseline Continuous Integration workflows using optimized Docker containers.
+
+## The Caffeine Framework Layers
+
+The framework is composed of the following distinct layers:
+
+1.  **Generic Interface ([`caffeine-hal`](https://github.com/while-one/caffeine-hal)):** Header-only definitions of the Hardware Abstraction Layer and Virtual Method Tables (VMTs).
+2.  **Hardware Ports ([`caffeine-hal-ports`](https://github.com/while-one/caffeine-hal-ports)):** The concrete implementations of the HAL for specific vendors (e.g., STM32, NXP, nRF, TI) and OS environments (Linux POSIX). It encapsulates vendor SDKs and provides modern CMake cross-compilation presets.
+3.  **Middleware (TBD):** Device drivers (e.g., displays, sensors) and protocols (e.g., Modbus, USB stacks) that build strictly upon the generic `caffeine-hal` interface, remaining completely agnostic to the underlying hardware.
+4.  **Application (TBD):** The top-level business logic, state machines, and system orchestration that utilize the middleware and HAL interfaces.
 
 ## Next Steps for New Components
 
 1.  Update this `README.md` to describe the specific purpose of the new repository (e.g., "STM32 Porting Layer", "Modbus Middleware").
 2.  Review and customize `.github/workflows/ci.yml` if your component requires a specific cross-compilation matrix (like ARM GCC) rather than native testing.
 3.  Add the specific source files and CMake configuration (e.g., `CMakePresets.json`) as outlined in the [Caffeine-HAL Architecture Guide](https://github.com/while-one/caffeine-hal).
+
+---
+
+## Support
+
+They say dealing with abstraction is a form of art, so I suppose that makes me an artist? Whether this caffeine fuels an elegant HAL or a deep debugging session, I appreciate you being part of the gallery.
+
+If my projects helped you, buy me a brew or if the opposite open a PR!
+
+<a href="https://www.buymeacoffee.com/whileone" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+---
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
