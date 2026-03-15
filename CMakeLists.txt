@@ -1,11 +1,12 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.23)
 
 # Placeholder project name and version
-project(
+project(caffeine-template
         VERSION 0.1.2
         LANGUAGES C
-        DESCRIPTION "Repalce me with a good description"
+        DESCRIPTION "Replace me with a good description"
         HOMEPAGE_URL "https://github.com/while-one/caffeine-template"
+)
 
 # Global standards for the Caffeine Framework
 set(CMAKE_C_STANDARD 11)
