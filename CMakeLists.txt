@@ -16,9 +16,16 @@ set(CMAKE_C_EXTENSIONS OFF)
 # Useful for IDEs, clang-tidy, and clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# --- Load Caffeine Build Macros ---
+include(caffeine-build/cmake/CaffeineMacros.cmake OPTIONAL)
+
 # --- Component Configuration ---
-# add_library(caffeine_<name> STATIC src/main.c)
+# add_executable(caffeine_<name> src/main.c)
 # target_include_directories(caffeine_<name> PUBLIC include)
+
+# --- Firmware Generation ---
+# Generate hex/bin files and print size if cross-compiling
+# cfn_add_firmware(caffeine_<name>)
 
 # --- Optional: Add unit tests ---
 # enable_testing()
