@@ -28,5 +28,10 @@ include(caffeine-build/cmake/CaffeineMacros.cmake OPTIONAL)
 # cfn_add_firmware(caffeine_<name>)
 
 # --- Optional: Add unit tests ---
-# enable_testing()
-# add_subdirectory(tests)
+option(CFN_TEMPLATE_BUILD_TESTS "Build the unit tests" OFF)
+if(CFN_TEMPLATE_BUILD_TESTS)
+    include(CTest)
+    if(BUILD_TESTING)
+        add_subdirectory(tests)
+    endif()
+endif()
