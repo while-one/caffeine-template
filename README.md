@@ -1,25 +1,25 @@
 <p align="center">
   <a href="https://whileone.me">
-    <img src="https://whileone.me/images/caffeine-small.png" alt="Caffeine Logo" width="384" height="384">
+    <img src="https://raw.githubusercontent.com/while-one/caffeine-build/main/assets/logo.png" alt="Caffeine Logo" width="50%">
   </a>
+<h1 align="center">The Caffeine Framework</h1>
 </p>
-
 
 
 <p align="center">
   <img src="https://img.shields.io/badge/C-11-blue.svg?style=flat-square&logo=c" alt="C11">
   <img src="https://img.shields.io/badge/CMake-%23008FBA.svg?style=flat-square&logo=cmake&logoColor=white" alt="CMake">
-  <a href="https://github.com/while-one/caffeine-hal/tags">
-    <img src="https://img.shields.io/github/v/tag/while-one/caffeine-hal?style=flat-square&label=Release" alt="Latest Release">
+  <a href="https://github.com/while-one/caffeine-template/tags">
+    <img src="https://img.shields.io/github/v/tag/while-one/caffeine-template?style=flat-square&label=Release" alt="Latest Release">
   </a>
-  <a href="https://github.com/while-one/caffeine-hal/actions/workflows/ci.yml">
-    <img src="https://img.shields.io/github/actions/workflow/status/while-one/caffeine-hal/ci.yml?style=flat-square&branch=main" alt="CI Status">
+  <a href="https://github.com/while-one/caffeine-template/actions/workflows/ci.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/while-one/caffeine-template/ci.yml?style=flat-square&branch=main" alt="CI Status">
   </a>
-  <a href="https://github.com/while-one/caffeine-hal/commits/main">
-    <img src="https://img.shields.io/github/last-commit/while-one/caffeine-hal.svg?style=flat-square" alt="Last Commit">
+  <a href="https://github.com/while-one/caffeine-template/commits/main">
+    <img src="https://img.shields.io/github/last-commit/while-one/caffeine-template.svg?style=flat-square" alt="Last Commit">
   </a>
-  <a href="https://github.com/while-one/caffeine-hal/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/while-one/caffeine-hal?style=flat-square&color=blue" alt="License: MIT">
+  <a href="https://github.com/while-one/caffeine-template/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/while-one/caffeine-template?style=flat-square&color=blue" alt="License: MIT">
   </a>
 </p>
 
@@ -29,11 +29,29 @@ This is the foundational template repository for all new components within the *
 
 ## Shared Ecosystem Standards
 
-By instantiating a repository from this template, you inherit the framework's strict coding standards and CI infrastructure:
+By instantiating a repository from this template, you inherit the framework's strict coding standards and CI infrastructure via the `caffeine-build` submodule:
 
-*   **Formatting (`config/.clang-format`):** Enforces a 120-column limit, 4-space indentation, and Allman-style braces.
-*   **Static Analysis (`config/.clang-tidy`):** Enforces strict C11 compliance, memory safety rules (no dynamic allocation), and best practices for embedded systems.
-*   **GitHub Infrastructure (`.github/`):** Pre-configured Pull Request templates, repository ownership rules, and baseline Continuous Integration workflows using optimized Docker containers.
+*   **Formatting:** Enforces a 120-column limit, 4-space indentation, and Allman-style braces via `caffeine-build/config/coding/.clang-format`.
+*   **Static Analysis:** Enforces strict C11 compliance, memory safety rules (no dynamic allocation), and best practices for embedded systems via `caffeine-build/config/coding/.clang-tidy`.
+*   **Unified Build System:** A common cross-platform Docker/native build script orchestrates the build process identically to CI.
+
+### Building Locally
+
+To build this project locally, utilize the `caffeine-build` submodule script:
+
+```bash
+# Ensure submodules are initialized
+git submodule update --init --recursive
+
+# Build natively (Linux/Host)
+./caffeine-build/scripts/build.sh native
+
+# Build for a specific preset (e.g., STM32)
+./caffeine-build/scripts/build.sh stm32f407-release
+
+# Run formatting target
+./caffeine-build/scripts/build.sh native caffeine-template-format
+```
 
 ## The Caffeine Framework Layers
 
